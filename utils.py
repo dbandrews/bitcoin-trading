@@ -146,7 +146,7 @@ class PurgedGroupTimeSeriesSplit(_BaseKFold):
 def plot_cv_indices(
     cv, X, y, group, ax, n_splits, lw=10, group_name="day", moving_average=None
 ):
-    """[summary]
+    """Plots a visual of the specified CV splitter with sample time series data
 
     Parameters
     ----------
