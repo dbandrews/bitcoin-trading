@@ -262,38 +262,3 @@ def plot_cv_indices(
 
     ax.set_title("{}".format(type(cv).__name__), fontsize=15)
     return ax
-
-
-def simulate_np(S0=1, σ=0.1, T=1000):
-    """
-    Calculates a simulated Brownian motion for stock price.
-
-    Parameters
-    ----------
-    S0: float
-        Initial stock price
-    σ: float
-        Volatility of the stock
-    T: int
-        Number of time steps to simulate over
-
-    Returns
-    -------
-    list[float] :
-        Simulated stock price over T time steps
-
-    Examples
-    --------
-    >>>simulate(10,0.1,10)
-    array([10.90355263, 10.07348102, 12.19974705, 10.0306349 ,  9.32654282,
-        7.82230874,  7.58329327,  7.19078946,  6.87241673,  5.78931361])
-
-    """
-    prices = np.arange(T)
-    σ = np.repeat(σ, T)
-    Z = np.random.randn(T)
-    theta = np.exp(-0.5 * σ ** 2 + σ * Z)
-
-    prices = S0 * theta.cumprod()
-
-    return prices
